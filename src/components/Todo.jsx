@@ -5,7 +5,7 @@ import {AiFillDelete} from 'react-icons/ai'
 function Todo({todo,updateMode,deleteTodo}) {
   return (
     <div className="todo">
-        <div className="text">{todo.text}</div>
+        <div className="text">{todo}</div>
         <div className="icons">
             <BiEdit className='icon' onClick={updateMode}/>
             <AiFillDelete className='icon' onClick={deleteTodo}/>

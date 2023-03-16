@@ -3,7 +3,7 @@ import Todo from "./components/Todo";
 import { getAllTodos } from "./utils/handelApi";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState({todos:[]});
   useEffect(() => {
     getAllTodos(setTodos);
   }, []);
@@ -17,9 +17,7 @@ function App() {
           <div className="add">Add</div>
         </div>
         <div className="list">
-          {
-            todos.map((todo,index) => (<Todo key={index} todo={todo} />))
-          }
+          {todos.todos.map((todo,index) => <Todo key={index} todo={todo.text} />)}
         </div>
       </div>
     </div>
