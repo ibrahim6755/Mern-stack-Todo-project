@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="app">
       <div className="container py-3">
-        <h1>My Todo App</h1>
+        <h1 className="fw-bold mb-4">My Todo App</h1>
         <div className="top">
           <input className="liveAlertPlaceholder" type="text" placeholder="Add Todos..." value={text} onChange={(e) => setText(e.target.value)} />
           <div className="add" onClick={isUpdating ?
