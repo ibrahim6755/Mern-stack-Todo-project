@@ -9,7 +9,7 @@ function App() {
   const [text, setText] = useState("")
   const [isUpdating, setIsUpdating] = useState(false)
   const [todoId, setTodoId] = useState("")
-
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     getAllTodos(setTodos);
@@ -23,10 +23,11 @@ function App() {
 
   const handleAddTodo = () => {
     if (text.trim() === '') {
-      alert('Please enter some text for the To-Do item..');
+      setErrorMessage('Please enter some text for the to-do item !!');
       return;
     }
     addTodo(text, setText, setTodos);
+    setErrorMessage('')
   }
 
   return (
@@ -40,6 +41,7 @@ function App() {
             handleAddTodo}>{isUpdating ? "Update" : "Add"}</div>
         </div>
         <div className="list">
+        {errorMessage && <p className="error bg-danger mt-3 p-2 fw-bold rounded text-center">{errorMessage}</p>}
           {
             todos.todos.length === 0 ?
             <li className="list-group-item d-flex justify-content-center align-items-center my-3 ">
