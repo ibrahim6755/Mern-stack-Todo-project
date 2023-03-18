@@ -23,7 +23,7 @@ function App() {
 
   const handleAddTodo = () => {
     if (text.trim() === '') {
-      setErrorMessage('Please enter some text for the to-do item !!');
+      setErrorMessage('Please enter some text for the to-do item ');
       return;
     }
     addTodo(text, setText, setTodos);
@@ -40,8 +40,9 @@ function App() {
             () => updateTodo(todoId, text, setTodos, setText, setIsUpdating):
             handleAddTodo}>{isUpdating ? "Update" : "Add"}</div>
         </div>
+        {errorMessage && <p className="error bg-danger mt-3 p-2 fw-bold rounded text-center d-flex align-items-center justify-content-center">{errorMessage}<i class="bi bi-exclamation-circle-fill ms-2 fs-5"></i></p>}
         <div className="list">
-        {errorMessage && <p className="error bg-danger mt-3 p-2 fw-bold rounded text-center">{errorMessage}</p>}
+       
           {
             todos.todos.length === 0 ?
             <li className="list-group-item d-flex justify-content-center align-items-center my-3 ">
