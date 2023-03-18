@@ -19,17 +19,25 @@ function App() {
     setIsUpdating(true)
     setText(text)
     setTodoId(_id)
-
   }
+
+  const handleAddTodo = () => {
+    if (text.trim() === '') {
+      alert('Please enter some text for the To-Do item..');
+      return;
+    }
+    addTodo(text, setText, setTodos);
+  }
+
   return (
     <div className="app">
       <div className="container py-3">
         <h1>My Todo App</h1>
         <div className="top">
-          <input type="text" placeholder="Add Todos..." value={text} onChange={(e) => setText(e.target.value)} />
+          <input className="liveAlertPlaceholder" type="text" placeholder="Add Todos..." value={text} onChange={(e) => setText(e.target.value)} />
           <div className="add" onClick={isUpdating ?
-            () => updateTodo(todoId, text, setTodos, setText, setIsUpdating) :
-            () => addTodo(text, setText, setTodos)}>{isUpdating ? "Update" : "Add"}</div>
+            () => updateTodo(todoId, text, setTodos, setText, setIsUpdating):
+            handleAddTodo}>{isUpdating ? "Update" : "Add"}</div>
         </div>
         <div className="list">
           {
