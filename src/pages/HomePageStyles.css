@@ -1,0 +1,13 @@
+.bg{
+    color: rgba(0, 0, 0, 0.9);
+    position: relative;
+    z-index: -1;
+}
+.bg img{
+    height: 100vh;
+}
+.row{
+    position: absolute;
+    top: 8%;
+    left: 20%;
+}
