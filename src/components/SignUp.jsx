@@ -9,10 +9,11 @@ function SignUp() {
     })
 
     
-  const handleInputChange = (event) => {
-    const { fullName, value } = event.target.value;
-    setFormData({ ...formData, [fullName]: value });
-  };
+    const handleInputChange = (event) => {
+      const { id, value } = event.target;
+      setFormData({ ...formData, [id]: value });
+    };
+    
 
 
   const handleSubmit = async (event) => {
